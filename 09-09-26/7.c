@@ -3,36 +3,32 @@
 #include <stdio.h>
 #define length 100
 
-// Function to replace every occurrence of 'x' with 'y' in the given string
-void replaceChar(char word[], char x, char y) {
-    int i = 0;
-    
-    while (word[i] != '\0') {
-        if (word[i] == x) {
-            word[i] = y; // Swap character x with y
+// Replaces all occurrences of character x with character y
+void replaceChar(char str[], char x, char y) {
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == x) {
+            str[i] = y;
         }
-        i++;
     }
 }
 
 int main() {
-    char word[length];
+    char str[length];
     char x, y;
 
-    // Prompt user and read the word
     printf("Enter a word: ");
-    scanf("%s", word);
+    // Reads an entire line including spaces, excluding the newline
+    scanf("%99[^\n]", str);
 
-    // Note: The space before %c skips any leftover newline characters in the buffer
-    printf("Enter the character to replace (x): ");
+    printf("Enter character to replace (x): ");
     scanf(" %c", &x);
 
-    printf("Enter the replacement character (y): ");
+    printf("Enter replacement character (y): ");
     scanf(" %c", &y);
 
-    // Call the function to modify the string
-    replaceChar(word, x, y);
-    printf("Modified word: %s\n", word);
+    replaceChar(str, x, y);
+
+    printf("Modified result: %s\n", str);
 
     return 0;
 }
