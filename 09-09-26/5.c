@@ -1,29 +1,32 @@
 //code by Sushmitha Ankireddy
-//Date:09-09-26
+//Date 09-09-26
 #include <stdio.h>
 #include <string.h>
-#define length 100
-// Function to check if a string is a palindrome
+#define LENGTH 100
+
+// Checks if the given string is a palindrome
 int isPalindrome(char str[]) {
-    int len = strlen(str); // Task 1: Find the length of the string
+    int len = strlen(str);
     
-    // Task 2: Check palindrome condition up to the midpoint (len / 2)
     for (int i = 0; i < len / 2; i++) {
         if (str[i] != str[len - 1 - i]) {
-            return 0; // Not a palindrome
+            return 0; // Characters do not match
         }
     }
-    return 1; // Is a palindrome
+    return 1; // All characters match
 }
 
 int main() {
-    char str[length];
+    char str[LENGTH];
 
-    // Read the input string
-    printf("Input:");
-    scanf("%s", str);
+    printf("Input: ");
+    // Read the line including spaces
+    fgets(str, sizeof(str), stdin);
 
-    // Check condition and print the exact required output
+    // Remove the newline character left by fgets
+    str[strcspn(str, "\n")] = 0;
+
+    // Output the result
     if (isPalindrome(str)) {
         printf("Output: Palindrome\n");
     } else {
