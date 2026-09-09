@@ -1,3 +1,5 @@
+//code by Sushmitha Ankireddy
+//date:09-09-26
 #include <stdio.h>
 
 // Function to find the index of the first occurrence of a character
