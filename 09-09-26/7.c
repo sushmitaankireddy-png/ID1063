@@ -1,10 +1,16 @@
 //code by Sushmitha Ankireddy
 //Date:09-09-26
 #include <stdio.h>
-#define length 100
+#include <stdlib.h>
 
-// Replaces all occurrences of character x with character y
-void replaceChar(char str[], char x, char y) {
+// Function to allocate dynamic memory for a string
+char* createString(int size) {
+    char *str = (char *)malloc(size * sizeof(char));
+    return str;
+}
+
+// Function to replace characters
+void replaceChar(char *str, char x, char y) {
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] == x) {
             str[i] = y;
@@ -13,11 +19,13 @@ void replaceChar(char str[], char x, char y) {
 }
 
 int main() {
-    char str[length];
+    int max_length = 100;
+    
+    // Dynamically allocate memory for string using pointer logic
+    char *str = createString(max_length);
     char x, y;
 
-    printf("Enter a word: ");
-    // Reads an entire line including spaces, excluding the newline
+    printf("Enter a sentence: ");
     scanf("%99[^\n]", str);
 
     printf("Enter character to replace (x): ");
@@ -29,6 +37,9 @@ int main() {
     replaceChar(str, x, y);
 
     printf("Modified result: %s\n", str);
+
+    // Free dynamically allocated memory
+    free(str);
 
     return 0;
 }
