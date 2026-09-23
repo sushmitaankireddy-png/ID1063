@@ -12,8 +12,10 @@ int daysElapsed(int day, int month) {
 }
 
 int main() {
+    int day,month;
     // Test case from the problem: day = 1, month = 2
-    int day = 1, month = 2;
+    printf("enter the day and month:");
+    scanf("%d %d", day, month);
     
     printf("Input: %d %d\n", day, month);
     printf("Output: %d\n", daysElapsed(day, month));
