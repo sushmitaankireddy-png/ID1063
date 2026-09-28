@@ -24,6 +24,7 @@ print(f"Option A is Correct: {np.isclose(trace_P, sum_eigenvalues)}\n")
 P_transpose_P = np.matmul(P.T, P)
 is_identity = np.array_equal(P_transpose_P, np.eye(3))
 print(f"Option B is Correct: {is_identity}\n")
+print("P^T * P:\n", P.T @ P)
 
 # Option C: Check if P is skew-symmetric (P^T = -P)
 is_skew_symmetric = np.array_equal(P.T, -P)
